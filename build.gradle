@@ -13,7 +13,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.2.4.RELEASE'
+    compile 'javax.xml.bind:jaxb-api'
+//    compile 'com.sun.xml.bind:jaxb-core'
+//    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
+
+//    compile 'com.sun.xml.bind:jaxb-impl'
+//    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.2'
+
+    compile 'com.nimbusds:nimbus-jose-jwt'
+    compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '8.6'
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
