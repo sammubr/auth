@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -24,12 +25,6 @@ class UserConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/oauth/token").permitAll()
-//                .and()
                 .authorizeRequests()
                 .mvcMatchers("/.well-known/jwks.json").permitAll()
                 .anyRequest().authenticated()
@@ -45,20 +40,9 @@ class UserConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Override
+    public void configure(WebSecurity webSecurity) throws Exception {
+        webSecurity.ignoring().antMatchers("/register", "/error");
+    }
 
-//    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        return new UserDetailsServiceImpl();
-////        return new InMemoryUserDetailsManager(
-////                User.withDefaultPasswordEncoder()
-////                        .username("subject")
-////                        .password("password")
-////                        .roles("USER")
-////                        .build());
-//    }
 }
