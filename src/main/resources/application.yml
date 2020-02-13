@@ -1,2 +1,14 @@
 server:
   port: 8081
+spring:
+  data:
+    mongodb:
+      host: xxxxxxxxxx
+      port: xxxxx
+      database: xxxxx
+      username: root
+      password: xxxxxxxx
+      authenticationDatabase: admin
+logging:
+  level:
+    org.springframework.security: debug
