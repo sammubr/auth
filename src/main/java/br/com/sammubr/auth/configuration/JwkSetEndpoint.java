@@ -10,12 +10,6 @@ import java.security.KeyPair;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Map;
 
-/**
- * Legacy Authorization Server (spring-security-oauth2) does not support any
- * <a href target="_blank" href="https://tools.ietf.org/html/rfc7517#section-5">JWK Set</a> endpoint.
- *
- * This class adds ad-hoc support in order to better support the other samples in the repo.
- */
 @FrameworkEndpoint
 class JwkSetEndpoint {
     KeyPair keyPair;

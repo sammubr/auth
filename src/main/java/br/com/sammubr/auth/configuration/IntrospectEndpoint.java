@@ -12,12 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Legacy Authorization Server (spring-security-oauth2) does not support any
- * Token Introspection endpoint.
- *
- * This class adds ad-hoc support in order to better support the other samples in the repo.
- */
 @FrameworkEndpoint
 class IntrospectEndpoint {
     TokenStore tokenStore;
