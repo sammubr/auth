@@ -27,6 +27,7 @@ public class UserConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll()
+                .mvcMatchers("/.well-known/jwks.json").permitAll()
                 .mvcMatchers("/teste").permitAll()
                 .anyRequest().authenticated()
                 .and()
