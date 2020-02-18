@@ -45,12 +45,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .scopes("message:read")
                 .accessTokenValiditySeconds(600_000_000)
                 .and()
+
                 .withClient("writer")
                 .authorizedGrantTypes("password")
                 .secret("{noop}secret")
                 .scopes("message:write")
                 .accessTokenValiditySeconds(600_000_000)
                 .and()
+
                 .withClient("noscopes")
                 .authorizedGrantTypes("password")
                 .secret("{noop}secret")
